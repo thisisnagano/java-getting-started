@@ -104,7 +104,26 @@
           </execution>
         </executions>
       </plugin>
+      <!-- download latest sqreen agent -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+         <artifactId>wagon-maven-plugin</artifactId>
+  <version>1.0</version>
+  <executions>
+    <execution>
+      <id>download-sqreen</id>
+      <phase>package</phase>
+      <goals>
+        <goal>download-single</goal>
+      </goals>
+      <configuration>
+        <url>https://download.sqreen.com</url>
+        <fromFile>java/sqreen.jar</fromFile>
+        <toFile>${project.build.directory}/../sqreen.jar</toFile>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
     </plugins>
   </build>
-
 </project>
